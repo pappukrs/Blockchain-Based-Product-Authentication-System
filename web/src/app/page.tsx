@@ -10,7 +10,7 @@ import { useSolanaWallet } from "@/hooks/use-solana-wallet";
 
 export default function Home() {
   const [isScanning, setIsScanning] = useState(false);
-  const [scannedProduct, setScannedProduct] = useState<string | null>(null);
+  const [, setScannedProduct] = useState<string | null>(null);
   const { connected, connect, disconnect, publicKey } = useSolanaWallet();
 
   const handleScan = (result: string) => {
