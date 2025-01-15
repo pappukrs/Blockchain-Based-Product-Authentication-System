@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Shield, AlertCircle } from "lucide-react";
+import { Shield } from "lucide-react";
 import { verifyProduct } from "@/lib/api";
 import { solanaService } from "@/lib/solana";
 import { toast } from "sonner";
@@ -12,9 +12,15 @@ interface ProductVerificationProps {
   productId: string | null;
 }
 
+interface ProductDetails {
+  manufacturer: string;
+  productionDate: string;
+  verificationCount: number;
+}
+
 export function ProductVerification({ productId }: ProductVerificationProps) {
   const [isVerifying, setIsVerifying] = useState(false);
-  const [productDetails, setProductDetails] = useState<any>(null);
+  const [productDetails, setProductDetails] = useState<ProductDetails | null>(null);
 
   const handleVerification = async () => {
     if (!productId) return;

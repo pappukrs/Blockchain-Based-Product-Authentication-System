@@ -17,7 +17,7 @@ export function useSolanaWallet() {
     try {
       await disconnect();
       toast.success("Wallet disconnected");
-    } catch (error) {
+    } catch {
       toast.error("Error disconnecting wallet");
     }
   }, [disconnect]);
