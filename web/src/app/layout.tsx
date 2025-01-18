@@ -9,12 +9,15 @@ import { Toaster } from "sonner";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'VerifiChain - Blockchain Product Authentication',
+  title: 'Blocenity - Blockchain Product Authentication',
   description: 'Verify product authenticity using blockchain technology',
 };
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import  FloatingNavDemo  from '@/components/FloatingNavDemo';
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,9 +45,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <FloatingNavDemo />
+          <Navbar />
           <SolanaProvider>
             {/* <App /> */}
             {children}
+            <Footer />
             <Toaster />
           </SolanaProvider>
         </ThemeProvider>
